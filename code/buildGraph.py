@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import sys
 import csv
 from networkx.algorithms import community
+from code.evaluateGraph import *
 
 tsv_file = open("/Users/bipashabanerjee/Documents/CS/sem5/SGML/CS6804/cora/cora_graph.tsv")
 # read_tsv = csv.reader(tsv_file, delimiter="\t")
@@ -20,4 +21,8 @@ for i, elrow in edgelist.iterrows():
 
 lp = list(community.label_propagation_communities(graph))
 lpcoms = [tuple(x) for x in lp]
-print(lpcoms)
+
+#To run the evaluation script
+
+true_tsv_file = open("/Users/bipashabanerjee/Documents/CS/sem5/SGML/CS6804/cora/cora_graph.tsv")
+evaluate_partition()
