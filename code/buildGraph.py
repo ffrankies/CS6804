@@ -23,6 +23,7 @@ for i, elrow in edgelist.iterrows():
 lp = list(community.label_propagation_communities(graph))
 lpcoms = [tuple(x) for x in lp]
 i = 0
+#The following code block has been blocked since it has been executed and outputed to a file
 # for list_1 in lpcoms:
   
 #     for l in list_1:
@@ -35,7 +36,7 @@ algo_graph_list=[]
 lines = open('/Users/bipashabanerjee/Documents/CS/sem5/SGML/CS6804/cora/output.txt', 'r').readlines()
 for line in sorted(lines, key=lambda line: line.split()[0]):
     # print(line.split('\t')[1])
-    algo_graph_list.append(line.split('\t')[1].strip())
+    algo_graph_list.append(int(line.split('\t')[1].strip()))
 algo_graph_nparray= np.array(algo_graph_list)
 # algo_graph_nparray = numpy.array(lpcoms)
 # #To run the evaluation script
@@ -45,7 +46,7 @@ with open("/Users/bipashabanerjee/Documents/CS/sem5/SGML/CS6804/cora/cora_truePa
     true_pred = list(csv.reader(csv_file, delimiter="\t"))
     for each_row in true_pred:
 
-        arr.append(str(int(each_row[1])-1))
+        arr.append((int(each_row[1])-1))
     true_value_nparray = np.array(arr)
 
 
